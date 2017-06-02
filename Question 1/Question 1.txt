@@ -1,0 +1,212 @@
+Encapsulation
+For Encapsulation variables should be hidden from access from other classes, forcing them to use methods to write to and read from these variables. Variables should be declared as private, and getter and setter methods should be made public to see variable data and modify them respectively.
+
+public class Student {
+    private String name;
+    private List<String> classes;
+    private int startingYear;
+
+    public Student(String name, List<String> classes, int startingYear) {
+        this.name = name;
+        this.classes = classes;
+        this.startingYear = startingYear;
+    }
+
+    public String getName() {
+    
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<String> getClasses() {
+        return classes;
+    }
+
+    public void setClasses(List<String> classes) {
+        this.classes = classes;
+    }
+
+    public int getStartingYear() {
+        return startingYear;
+    }
+
+    public void setStartingYear(int startingYear) {
+        this.startingYear = startingYear;
+    }
+}
+
+
+Inheritance
+Inheritance is when one class imports the methods and data variables from another class, creating a hierarchical order of subclasses and superclasses. Subclasses are those that inherit from another, which would make the referenced one a superclass. A key benefit of Inheritance is that is can vastly reduce duplicate code. Subclasses can override a superclass' implementation of a method.
+
+public class Calculator {
+
+    public int add(int a, int b){
+        return a+b;
+    }
+    public int sub(int a, int b){
+        return a-b;
+    }
+    public int mult(int a, int b){
+        return a*b;
+    }
+    public int div(int a, int b){
+        return a/b;
+    }
+}
+
+public class Example extends Calculator {
+
+    public int sqRoot(int a){
+        return (int) Math.sqrt(a);
+    }
+
+    public static void main(String[] args) {
+        Example ex = new Example();
+        System.out.println(ex.add(1, 2));
+        System.out.println(ex.div(6, 2));
+        System.out.println(ex.sqRoot(6));
+    }
+}
+
+Polymorphism
+Polymorphism uses the Inheritance OOP to allow multiple subclasses of a superclass to be treated as objects of their single superclass. Polymorphism helps to simplify code when dealing with hierarchical family types (e.g. A "duck" and a "Dog" are both subclasses of "Animal", yet both use the same method names as defined in "Animal"). New subclasses can also be added to the code without having to alter the already written code.
+
+public abstract class Person {
+    private String name;
+    private int age;
+    private String email;
+
+    public Person(){};
+    
+    public Person(String name, int age, String email) {
+        this.name = name;
+        this.age = age;
+        this.email = email;
+    }
+
+    public String getName() {
+    
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+}
+
+public class Employee extends Person {
+    private String role;
+    private int salary;
+
+    public Employee(String name, int age, String email, String role, int salary) {
+        super(name, age, email);
+        this.role = role;
+        this.salary = salary;
+    }
+
+    public String getRole() {
+
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+}
+
+public class Student extends Person {
+    private List<String> classes;
+    private int startingYear;
+
+    public Student(String name, int age, String email, List<String> classes, int startingYear) {
+        super(name, age, email);
+        this.classes = classes;
+        this.startingYear = startingYear;
+    }
+
+    public List<String> getClasses() {
+        return classes;
+    }
+
+    public void setClasses(List<String> classes) {
+        this.classes = classes;
+    }
+
+    public int getStartingYear() {
+        return startingYear;
+    }
+
+    public void setStartingYear(int startingYear) {
+        this.startingYear = startingYear;
+    }
+}
+
+Abstraction
+Abstraction is the process of hiding the internals (implementation) of a class from the user, so that a user only knows what an object will do and not how it does such a task. Abstraction makes classes much more legible and means things can be reused with ease.
+
+public abstract class Person {
+    private String name;
+    private int age;
+    private String email;
+
+    public Person(){};
+
+    public Person(String name, int age, String email) {
+        this.name = name;
+        this.age = age;
+        this.email = email;
+    }
+
+    public String getName() {
+
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+}
